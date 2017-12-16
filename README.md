@@ -27,14 +27,14 @@ Options: --login      Your login (for hh.ru it is Email or phone number)
 # Logging
 updatecv.py loggs its execution by default:
 ```
-[16.12.2017 15:11] updatecv.py: started
-[16.12.2017 15:11] updatecv.py: finished
+[16.12.2017 15:11] hh_updatecv: started
+[16.12.2017 15:11] hh_updatecv: finished
 ```
 Error message from server:
 ```
-[16.12.2017 15:31] updatecv.py: started
-[16.12.2017 15:31] updatecv.py: Server responded with code != 200 OK, the code is: 409
-[16.12.2017 15:31] updatecv.py: finished
+[16.12.2017 15:31] hh_updatecv: started
+[16.12.2017 15:31] hh_updatecv: Server responded with code != 200 OK, the code is: 409
+[16.12.2017 15:31] hh_updatecv: finished
 
 ```
 
