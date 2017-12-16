@@ -19,15 +19,15 @@ def now():
 
 
 def log_start():
-    print(f'[{now()}] hh.py: started')
+    print(f'[{now()}] hh_updatecv: started')
 
 
 def log_end():    
-    print(f'[{now()}] hh.py: finished ')
+    print(f'[{now()}] hh_updatecv: finished ')
 
 
 def log_error_code(code):
-    print(f'[{now()}] hh.py: Server responded with code != 200 OK, the code is: {code}')
+    print(f'[{now()}] hh_updatecv: Server responded with code != 200 OK, the code is: {code}')
 
 
 def prep_headers(new_headers):
