@@ -40,6 +40,7 @@ Error message from server:
 
 # TO-DO
 * Add --verbose to enable logging
+* Add aliases for flags (-v -l -p -u -i)
 * Use https://hh.ru by default
 * Add some kind of encryption for login/password
 * Catch errors if not loged in and if server is unavailable
