@@ -1,36 +1,54 @@
-def print_usage(scriptname):
-    print(f'Usage: \n{scriptname} --login LOGIN --password PASSWORD --id CV_ID --url URL\n'
-           'Options: --login      Your login (for hh.ru it is Email or phone number)\n'
-           '                      *tested only for Email\n'
-           '         --password   Your password\n'
-           '         --id         Identificator for Your CV\n'
-           '         --url        URL to hh.ru f.e. https://sochi.hh.ru\n'
-           '                      *tested only for https://sochi.hh.ru and https://hh.ru\n'
-           '\n'
-           '*Spaces and quotation mark signs aren`t allowed in the parameters\n')
+import argparse
+import os
 
 
-def get_args(argv):
-    if argv is None or not argv:
-        print('smth so wrong, argv in get_args (hhcli.py) is empty or None')
-        exit(1)
-    scriptname = argv[0].split('\\')[-1]
-    if len(argv) == 2 and argv[1] == '--help':
-        print_usage(scriptname)
-        exit(0)
-    if len(argv) != 9:
-        print_usage(scriptname)
-        exit(1)
-    argstr  = ' '.join(argv[1:])
-    arglst  = argstr.split(' --')
-    arglst[0] = arglst[0].replace('--','')
-    argdict = dict(( kv.split(' ') for kv in arglst ))
-    if ('login'    in argdict and
-        'password' in argdict and
-        'id'       in argdict and
-        'url'      in argdict):
-        return argdict['login'], argdict['password'], argdict['id'], argdict['url']
-    else:
-        print_usage(scriptname)
-        exit(1)
+def logfile(filename):
+    ''' logfile returns file object and creates directories recursively if needed'''
+    # simpler version of logfile is: argparse.FileType('a+'), 
+    # but it does not check directories
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    # if directory doesn't exist, the method makedirs creates it.
+    return open(filename, 'a+')
+
+
+def get_args():    
+    parser = argparse.ArgumentParser(description='Updates your CV at HH')
+    parser.add_argument('id', 
+                         dest='id', 
+                         metavar='CV_ID',
+                         action='append',
+                         help='Identificator for Your CV')
+    # append to store a list of CVs to update, default action is 'store'
+    parser.add_argument('-p','--password', 
+                         dest='password', 
+                         metavar='PASSWD',
+                         required=True, 
+                         help='Your password for HH')
+
+    parser.add_argument('-l','--login', 
+                         dest='login', 
+                         metavar='LOGIN',
+                         required=True,
+                         help='Your login (Email or phone number)')
+
+    parser.add_argument('-v','--verbose',
+                         dest='verbose', 
+                         action='store_true',
+                         help='Output logs to stdout')
+
+    parser.add_argument('-f','--logfile', 
+                         dest='logfile', 
+                         metavar='FILENAME',
+                         default='/tmp/update_cv.log',
+                         type=logfile,
+                         help='Logs to a specified file (/tmp/update_cv.log)')
+
+    parser.add_argument('-u','--url', 
+                         dest='url', 
+                         metavar='URL',
+                         default='https://hh.ru',
+                         help='URL to hh.ru f.e. https://sochi.hh.ru')
+
+    return parser.parse_args()
+
 

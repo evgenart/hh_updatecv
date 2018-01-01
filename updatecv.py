@@ -6,7 +6,7 @@ from hhaux import login_dir, update_cv_dir
 from hhaux import log_start, log_end, log_error_code
 from hhaux import common_headers, cv_headers
 from hhaux import login_data, cv_data
-from hhcli import get_args
+from hhcli_old import get_args
 
 def main():
     log_start()
