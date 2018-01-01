@@ -12,7 +12,7 @@ updatecv.py -l vasya@yandex.ru -p asfd2qwredpoi230fk0 -f hh_cv.log 01fe3fecabcd5
 # Example Usage in cron
 ```
 01  9 * * * bash -c 'cd ~ && source .bashrc && cat hh_cvs.txt | xargs -d "\n"  hh_updatecv/updatecv.py -l vasya@yandex.ru -p asfd2qwredpoi230fk0 -f ~/log_hh.txt'
-# Where hh_cvs.txt contains all CV_IDs
+# Where hh_cvs.txt contains all CV_IDs (one by line)
 ```
 
 # Help message
