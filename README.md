@@ -45,7 +45,7 @@ Error message from server:
 ```
 [01.01.2018 15:49] hh_updatecv: Started
 [01.01.2018 15:49] hh_updatecv: ERROR, CV_ID = 01fe3fecabcd51582300def41f575631fh4b00, HTTP STATUS CODE: 409
-[01.01.2018 15:49] hh_updatecv: ERROR, CV_ID = 9abcf677f018513860afbcef1f6a6b00565a76, HTTP STATsUS CODE: 409
+[01.01.2018 15:49] hh_updatecv: ERROR, CV_ID = 9abcf677f018513860afbcef1f6a6b00565a76, HTTP STATUS CODE: 409
 [01.01.2018 15:49] hh_updatecv: Finished
 
 ```
