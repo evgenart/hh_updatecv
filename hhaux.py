@@ -87,7 +87,7 @@ def get_xsrf(headers):
 def login_data(url, login, password, xsrf):
     return {'username' : login,
             'password' : password,
-            'backUrl'  : '{url}/',
+            'backUrl'  : f'{url}/',
             '_xsrf'    : xsrf,
             #'remember' : 'yes',  # try to clear this field
             'action'   : 'Войти'} 
